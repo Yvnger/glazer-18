@@ -1,0 +1,150 @@
+.promobar {
+  padding: 35px 0;
+  border-top: 1px solid #313644;
+  border-bottom: 1px solid #313644;
+  overflow-x: hidden;
+
+  &__inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas: "promo-arrows promo-arrows promo-arrows promo-text promo-text promo-text promo-text promo-text promo-text promo-text promo-text promo-text";
+    border-top: 1px solid #313644;
+    border-bottom: 1px solid #313644;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: -1px;
+      bottom: -1px;
+      border-top: 1px solid #313644;
+      border-bottom: 1px solid #313644;
+    }
+
+    &:after {
+      right: 100%;
+      left: -10000%;
+    }
+
+    &:before {
+      right: -10000%;
+      left: 100%;
+      background-color: #313644;
+    }
+  }
+
+  &__arrows {
+    display: block;
+    width: 106px;
+    height: 80px;
+    fill: #255ea2;
+
+    &-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      grid-area: promo-arrows;
+    }
+  }
+
+  &__text {
+    &-wrap {
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      grid-template-areas: "heading heading heading heading button button button button button ";
+      grid-area: promo-text;
+      padding: 42px 0;
+      background-color: #313644;
+    }
+
+    &-btn {
+      &-wrap {
+
+      }
+    }
+  }
+
+  &__heading {
+    @include resetMargins;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 25px;
+    color: white;
+
+    &-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      grid-area: heading;
+      padding-left: 70px;
+    }
+  }
+
+  &__btn {
+    &-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      grid-area: button;
+    }
+  }
+
+  @media screen and (max-width: $break-tablet-p) {
+    &__inner {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas: "promo-arrows promo-arrows promo-arrows promo-arrows" "promo-text promo-text promo-text promo-text";
+      padding: 30px 0 22px;
+      background-color: #313644;
+
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        top: -1px;
+        bottom: -1px;
+        background-color: #313644;
+      }
+    }
+
+    &__arrows {
+      width: 62px;
+      height: 47px;
+      fill: white;
+
+      &-wrap {
+        margin-bottom: 22px;
+      }
+    }
+
+    &__text {
+      &-wrap {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: "heading heading heading heading" "button button button button";
+        padding: 0;
+        background-color: #313644;
+      }
+    }
+
+    &__heading {
+      &-wrap {
+        margin-bottom: 33px;
+        padding: 0;
+      }
+    }
+  }
+
+  @media screen and (max-width: $break-mobile) {
+    padding: 20px 0;
+    .promobar__arrows {
+      &-wrap {
+        justify-content: flex-start;
+      }
+    }
+
+    &__btn {
+      width: 100%;
+    }
+  }
+}

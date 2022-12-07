@@ -1,0 +1,38 @@
+@import "../variables";
+
+.btn {
+  @include resetForm;
+  padding: 18px 43px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 14px;
+
+  &_fill {
+    background-color: #255ea2;
+    color: white;
+    transition: background-color $transition-duration $transition-function;
+
+    &:focus,
+    &:hover {
+      background-color: lighten(#255ea2, 10%);
+    }
+    &:active {
+      background-color: darken(#255ea2, 10%);
+    }
+  }
+
+  &_lg {
+    padding: 28px 64px;
+    font-size: 18px;
+  }
+
+  @media screen and (max-width: $break-tablet-a) {
+    padding: 14px 20px;
+
+    &_lg {
+      padding: 17px;
+      font-size: 14px;
+    }
+  }
+}

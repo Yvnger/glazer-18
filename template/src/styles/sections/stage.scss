@@ -1,0 +1,108 @@
+.stage {
+  padding: 80px 0;
+
+  &__title {
+    @include resetMargins;
+    margin-bottom: 95px;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    color: #000000;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    border-top: 1px solid #313644;
+    border-left: 1px solid #313644;
+    @include resetLists;
+    counter-reset: section;
+  }
+
+  &__item {
+    position: relative;
+    padding: 50px 100px 50px 160px;
+    border-bottom: 1px solid #313644;
+    border-right: 1px solid #313644;
+
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 40px;
+      counter-increment: section;
+      content: counters(section,".");
+      font-weight: 700;
+      font-size: 128px;
+      line-height: 154px;
+      color: #9eb6d3;
+    }
+    &-title {
+      @include resetMargins;
+      margin-bottom: 23px;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 25px;
+      color: #000000;
+    }
+  }
+
+  &__description {
+    &-list {
+      padding-left: 20px;
+    }
+    &-item {
+      padding-left: 12px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 22px;
+      color: #000000;
+      &::marker {
+        content: '\2014';
+        padding-right: 12px;
+        font-size: 1.2em;
+        color: #255ea2;
+      }
+    }
+  }
+  
+  @media screen and (max-width: $break-tablet-a) {
+    &__item {
+      padding: 30px;
+
+      &:before {
+        position: static;
+        font-size: 96px;
+        line-height: 130px;
+      }
+    }
+  }
+  
+  @media screen and (max-width: $break-mobile) {
+    padding: 40px 0 60px;
+
+    &__title {
+      margin-bottom: 48px;
+      font-size: 30px;
+      line-height: 36px;
+    }
+
+    &__list {
+      grid-template-columns: 1fr;
+      grid-auto-rows: auto;
+      gap: 20px;
+      border: none;
+    }
+
+    &__item {
+      padding: 0 30px 30px;
+      border: 1px solid #313644;
+
+      &:before {
+        position: static;
+        font-size: 96px;
+        line-height: 115px;
+      }
+    }
+  }
+}

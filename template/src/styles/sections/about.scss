@@ -1,0 +1,149 @@
+.about {
+  padding: 100px 0 160px;
+
+  &__wrap {
+    border-top: 1px solid #313644;
+    border-bottom: 1px solid #313644;
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: auto;
+    grid-template-areas: "image image image image image image text text text text text text";
+    gap: 20px;
+    border-right: 1px solid #313644;
+    border-left: 1px solid #313644;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    &-wrap {
+      grid-area: image;
+    }
+  }
+
+  &__text {
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      grid-area: text;
+      padding: 50px 70px 50px 0;
+    }
+  }
+
+  &__title {
+    @include resetMargins;
+    margin-bottom: 50px;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    color: black;
+  }
+
+  &__subtitle {
+    @include resetMargins;
+    margin-bottom: 40px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: black;
+  }
+
+  &__items {
+    @include resetLists;
+    margin-bottom: 40px;
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: black;
+
+    &::before {
+      content: url("../images/icons/mech-icon.svg");
+      display: block;
+      margin-top: 2px;
+      margin-right: 18px;
+      width: 15px;
+      height: 15px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__description {
+    @include resetMargins;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: black;
+
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+  }
+  
+  @media screen and (max-width: $break-tablet-p) {
+    padding: 50px 0;
+
+    &__wrap {
+      border: none;
+    }
+
+    &__inner {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas: "image image image image" "text text text text";
+      border: none;
+    }
+
+    &__image {
+      &-wrap {
+        max-height: 300px;
+      }
+    }
+
+    &__text {
+      &-wrap {
+        padding: 0;
+      }
+    }
+
+    &__title {
+      margin-bottom: 40px;
+      font-size: 30px;
+      line-height: 36px;
+    }
+  }
+  
+  @media screen and (max-width: $break-mobile) {
+    &__inner {
+      grid-template-areas: "text text text text";
+    }
+
+    &__image {
+      &-wrap {
+        display: none;
+      }
+
+      &-mobile {
+        margin-bottom: 30px;
+      }
+    }
+
+    &__description {
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}

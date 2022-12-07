@@ -1,0 +1,70 @@
+.thanks {
+  padding: 100px 0;
+  background-color: #255ea2;
+
+  &__title {
+    @include resetMargins;
+    margin-bottom: 83px;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    color: white;
+  }
+
+  &__slider {
+    position: relative;
+    overflow: hidden;
+    cursor: grab;
+
+    &-btn {
+      position: absolute;
+      top: 50%;
+      width: 29px;
+      height: 28px;
+      z-index: 10;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #95a1bb;
+      transition: color $transition-duration $transition-function;
+
+      &:hover {
+        color: #255ea2;
+      }
+
+      &-prev {
+        transform: rotate(180deg);
+      }
+
+      &-next {
+        right: 0;
+      }
+
+      &-icon {
+        fill: currentColor;
+      }
+    }
+  }
+
+  &__slide {
+    &-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+  
+  @media screen and (max-width: $break-mobile) {
+    border-top: 1px solid #313644;
+    border-bottom: 1px solid #313644;
+    padding: 30px 0;
+
+    &__title {
+      margin-bottom: 30px;
+      font-size: 30px;
+      line-height: 36px;
+    }
+  }
+}
